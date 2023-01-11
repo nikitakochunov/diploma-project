@@ -1,7 +1,12 @@
 import React from 'react'
+import Main from './layouts/main'
 
 const App = () => {
-  return <h1 className='text-3xl font-bold underline'>Diploma</h1>
+  return (
+    <>
+      <Main />
+    </>
+  )
 }
 
 export default App
