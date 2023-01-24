@@ -5,7 +5,7 @@ import Logo from './logo'
 
 const Header = () => {
   return (
-    <div className='flex flex-row border-b-2 items-center border-blue-600 p-2'>
+    <div className='flex flex-row items-center p-2'>
       <div className='basis-1/4'>
         <Logo />
       </div>
