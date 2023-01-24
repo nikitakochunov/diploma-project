@@ -1,10 +1,18 @@
 import React from 'react'
-import Button from '../components/common/button'
 import Header from '../components/ui/header'
-import { ChatBubbleIcon, HeartIcon } from '../components/icons'
+import Selection from '../components/ui/selection/'
 
 const Main = () => {
-  return <Header />
+  return (
+    <div className='flex flex-col justify-start h-full'>
+      <div className='basis-auto'>
+        <Header />
+      </div>
+      <div className='basis-3/4'>
+        <Selection />
+      </div>
+    </div>
+  )
 }
 
 export default Main
