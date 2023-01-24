@@ -1,5 +1,9 @@
 import { toDecimal } from './toDecimal'
 
+// Приведение многозначного числа к виду
+// 'не больше трех разрядов + словесное описание выделенного разряда'
+// Пример: 12340 -> 12,3
+
 export function reduceNumByDigit(num) {
   const digits = [
     { value: 1000, text: 'тыс' },

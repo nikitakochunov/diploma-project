@@ -1,3 +1,5 @@
+// tailwind классы для динамического отображения
+
 export const bgColor = {
   red: 'bg-red-500',
   blue: 'bg-blue-500',

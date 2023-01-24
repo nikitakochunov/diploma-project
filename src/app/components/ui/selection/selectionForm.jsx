@@ -4,7 +4,7 @@ import SelectionPrice from './selectionPrice'
 import SelectionRooms from './selectionRooms'
 
 const SelectionForm = () => {
-  const [active, setActive] = useState({
+  const [activeButton, setActiveButton] = useState({
     rooms: false,
     price: false,
     address: false,
@@ -25,7 +25,7 @@ const SelectionForm = () => {
   ]
 
   const handleButtonClick = (targetName) => {
-    setActive((prevState) => {
+    setActiveButton((prevState) => {
       const newState = { ...prevState }
       Object.keys(newState).forEach((key) => {
         newState[key] = targetName === key ? !newState[key] : false
@@ -48,7 +48,7 @@ const SelectionForm = () => {
         <div className='basis-1/4 border-r-2 border-r-neutral-200'>
           <SelectionRooms
             name='rooms'
-            isActive={active.rooms}
+            isActive={activeButton.rooms}
             rooms={rooms}
             defaultValues={value.rooms}
             onChange={handleChange}
@@ -59,7 +59,7 @@ const SelectionForm = () => {
           <SelectionPrice
             name='price'
             value={value.price}
-            isActive={active.price}
+            isActive={activeButton.price}
             onClick={handleButtonClick}
             onChange={handleChange}
             onButtonClick={handleButtonClick}
@@ -69,7 +69,7 @@ const SelectionForm = () => {
           <SelectionAddress
             name='address'
             value={value.address}
-            isActive={active.address}
+            isActive={activeButton.address}
             onClick={handleButtonClick}
             onChange={handleChange}
             onButtonClick={handleButtonClick}
