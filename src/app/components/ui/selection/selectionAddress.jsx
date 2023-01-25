@@ -13,6 +13,7 @@ const SelectionAddress = ({
 }) => {
   const optionsNumber = 5
 
+  const [inputValue, setInputvalue] = useState('')
   const [metroStations, setMetroStations] = useState([])
   const [districts, setDistricts] = useState([])
 
@@ -22,11 +23,13 @@ const SelectionAddress = ({
   }, [])
 
   const handleChange = ({ target }) => {
+    setInputvalue(target.value)
     onChange({ name: name, value: target.value })
   }
 
-  const handleSelectItemClick = (obj) => {
-    handleChange(obj)
+  const handleSelectItemClick = (data) => {
+    onChange({ name: name, value: data })
+    setInputvalue(data.textValue)
     handleButtonClick()
   }
 
@@ -39,7 +42,7 @@ const SelectionAddress = ({
       (underground) =>
         underground.label
           .toLowerCase()
-          .includes(value.split(' ').at(-1).toLowerCase()) // Вырезает из строки последнее слово
+          .includes(inputValue.split(' ').at(-1).toLowerCase()) // Вырезает из строки последнее слово
     )
     .splice(0, optionsNumber)
 
@@ -48,7 +51,7 @@ const SelectionAddress = ({
       (district) =>
         district.label
           .toLowerCase()
-          .includes(value.split(' ').at(-1).toLowerCase()) // Вырезает из строки последнее слово
+          .includes(inputValue.split(' ').at(-1).toLowerCase()) // Вырезает из строки последнее слово
     )
     .splice(0, optionsNumber)
 
@@ -56,6 +59,7 @@ const SelectionAddress = ({
     {
       label: 'Станции метро',
       text: 'Станция метро',
+      type: 'metro',
       options: filteredMetroStations,
       optionInner: (option) => (
         <div className='-ml-3.5 flex items-center space-x-2'>
@@ -67,6 +71,7 @@ const SelectionAddress = ({
     {
       label: 'Районы',
       text: 'Район',
+      type: 'district',
       options: filteredDistricts,
     },
   ]
@@ -75,13 +80,13 @@ const SelectionAddress = ({
     <div className='relative h-full w-full'>
       <input
         type='text'
-        value={value}
+        value={inputValue}
         className='w-full outline-none p-4'
         placeholder='Адрес, метро или район'
         onChange={handleChange}
-        onClick={handleButtonClick}
+        onFocus={handleButtonClick}
       />
-      {isActive && value.length > 2 && (
+      {isActive && inputValue.length > 2 && (
         <div className='rounded py-1 bg-white absolute top-16'>
           <SelectField
             isGrouped={true}
