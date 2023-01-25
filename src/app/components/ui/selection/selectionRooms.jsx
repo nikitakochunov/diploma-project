@@ -26,13 +26,13 @@ const SelectionRooms = ({
         room.value === currentTarget.value &&
         !isSelected(currentTarget.value)
       ) {
-        newRooms.push(room)
+        newRooms.push(room.value)
       }
 
       // Если один из выбранных вариантов не соответствует нажатому,
       // то он остается в выбранных вариантах
       if (room.value !== currentTarget.value && isSelected(room.value)) {
-        newRooms.push(room)
+        newRooms.push(room.value)
       }
 
       // Если нажатый вариант соответствует одному из выбранных,
@@ -43,7 +43,7 @@ const SelectionRooms = ({
   }
 
   const isSelected = (value) => {
-    return defaultValues.findIndex((room) => room.value === value) > -1
+    return defaultValues.includes(value)
   }
 
   const getButtonClasses = (value) => {

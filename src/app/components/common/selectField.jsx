@@ -18,9 +18,9 @@ const SelectField = ({
     return option.label
   }
 
-  const handleClick = (text, option) => {
-    const value = text + ' ' + option
-    onClick({ target: { value: value } })
+  const handleClick = (textArray, type, value) => {
+    const textValue = textArray.join(' ')
+    onClick({ value: value, type: type, textValue: textValue })
   }
 
   if (options && !isEmpty) {
@@ -43,7 +43,11 @@ const SelectField = ({
                   <OptionsListItem
                     key={option.value}
                     onClick={() => {
-                      handleClick(group.text, option.label)
+                      handleClick(
+                        [group.text, option.label],
+                        group.type,
+                        option.value
+                      )
                     }}
                   >
                     {renderOptionInner(group.optionInner, option)}
