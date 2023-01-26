@@ -1,10 +1,15 @@
 import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import AdsPage from './components/adsPage'
 import Main from './layouts/main'
 
 const App = () => {
   return (
     <>
-      <Main />
+      <Switch>
+        <Route path='/ads' component={AdsPage} />
+        <Route path='/' exact component={Main} />
+      </Switch>
     </>
   )
 }
