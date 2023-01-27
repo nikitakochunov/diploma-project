@@ -138,7 +138,7 @@ const SelectionRooms = ({
 
       {isActive && (
         <div className='rounded bg-white p-2 absolute top-16 flex flex-col space-y-2'>
-          <div className={'flex flex-row items-center space-x-2'}>
+          <div className='flex flex-row items-center space-x-2'>
             {roomsValues.map((room, index) => (
               <button
                 key={index}
