@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import AdsPage from './components/adsPage'
+import AdsPage from './components/ui/adsPage'
 import Main from './layouts/main'
 
 const App = () => {

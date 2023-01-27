@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import Button from '../../common/button'
 import SelectionAddress from './selectionAddress'
-import SelectionPrice from './selectionPrice'
+import SelectionRent from './selectionRent'
 import SelectionRooms from './selectionRooms'
 
 const SelectionForm = () => {
   const [activeButton, setActiveButton] = useState({
     rooms: false,
-    price: false,
+    rent: false,
     address: false,
   })
 
   const [value, setValue] = useState({
     rooms: [],
-    price: { from: '', to: '' },
+    rent: { from: '', to: '' },
     address: '',
   })
 
@@ -63,10 +63,10 @@ const SelectionForm = () => {
             />
           </div>
           <div className='basis-1/4 border-r-2 border-r-neutral-200'>
-            <SelectionPrice
-              name='price'
-              value={value.price}
-              isActive={activeButton.price}
+            <SelectionRent
+              name='rent'
+              value={value.rent}
+              isActive={activeButton.rent}
               onClick={handleButtonClick}
               onChange={handleChange}
               onButtonClick={handleButtonClick}

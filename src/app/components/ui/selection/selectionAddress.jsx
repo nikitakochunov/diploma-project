@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import api from '../../../api'
 import { bgColor } from '../../../constants/tailwindClasses'
 import SelectField from '../../common/selectField'
+import MetroStationWrapper from '../metroStationWrapper'
 
 const SelectionAddress = ({
   name,
@@ -62,10 +63,7 @@ const SelectionAddress = ({
       type: 'metro',
       options: filteredMetroStations,
       optionInner: (option) => (
-        <div className='-ml-3.5 flex items-center space-x-2'>
-          <div className={'h-1.5 w-1.5 rounded ' + bgColor[option.color]}></div>
-          <div>{option.label}</div>
-        </div>
+        <MetroStationWrapper color={option.color} label={option.label} />
       ),
     },
     {

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import api from '../api'
-import { metroStations } from '../api/fake.api/metroStations.api'
-import { bgColor } from '../constants/tailwindClasses'
-import TextMuted from './common/textMuted'
-import Title from './common/title'
+import api from '../../../api'
+import TextMuted from '../../common/textMuted'
+import Title from '../../common/title'
+import MetroStationWrapper from '../metroStationWrapper'
 
 const AdCard = ({ data }) => {
   const { address } = data
@@ -25,7 +24,7 @@ const AdCard = ({ data }) => {
           )
 
           return (
-            <MetroBlock
+            <MetroStationWrapper
               color={metroStation.color}
               label={metroStation.label}
               key={metroStation.value}
@@ -39,7 +38,7 @@ const AdCard = ({ data }) => {
           (metroStation) => metroStation.value === metro
         )
         return (
-          <MetroBlock
+          <MetroStationWrapper
             color={metroStation.color}
             label={metroStation.label}
             key={metroStation.value}
@@ -97,12 +96,3 @@ const AdCard = ({ data }) => {
 }
 
 export default AdCard
-
-const MetroBlock = ({ label, color }) => {
-  return (
-    <div className='-ml-3.5 flex items-center space-x-2'>
-      <div className={'h-1.5 w-1.5 rounded ' + bgColor[color]}></div>
-      <div>{label}</div>
-    </div>
-  )
-}

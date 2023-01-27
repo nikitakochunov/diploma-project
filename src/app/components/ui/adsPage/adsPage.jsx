@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import api from '../api'
+import api from '../../../api'
 import AdsList from './adsList'
-import Container from './common/container'
-import Loading from './common/loading'
-import Header from './ui/header'
-import SelectionForm from './ui/selection/selectionForm'
+import Container from '../../common/container'
+import Loading from '../../common/loading'
+import Header from '../header'
+import SelectionForm from '../selection/selectionForm'
 
 const AdsPage = () => {
   const [ads, setAds] = useState([])

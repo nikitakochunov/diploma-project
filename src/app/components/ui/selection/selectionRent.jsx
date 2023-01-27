@@ -4,7 +4,7 @@ import { reduceNumByDigit } from '../../../utils/reduceNumByDigit'
 import TextField from '../../common/textField'
 import SelectionButton from './selectionButton'
 
-const SelectionPrice = ({ name, value, isActive, onButtonClick, onChange }) => {
+const SelectionRent = ({ name, value, isActive, onButtonClick, onChange }) => {
   const DEFAULT_ACTIVE_STATE = {
     from: false,
     to: false,
@@ -90,4 +90,4 @@ const SelectionPrice = ({ name, value, isActive, onButtonClick, onChange }) => {
   )
 }
 
-export default SelectionPrice
+export default SelectionRent
