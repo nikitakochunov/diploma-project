@@ -10,8 +10,10 @@ const TextField = ({
 }) => {
   const getClasess = () => {
     return (
-      'h-8 w-40 flex flex-row border-2 rounded items-center transition-colors ' +
-      (isActive ? 'border-blue-500 ' : 'hover:border-neutral-700 duration-300 ')
+      'h-8 w-40 flex flex-row border-[1px] rounded items-center transition-colors ' +
+      (isActive
+        ? 'border-mainColor-500 shadow shadow-mainColor-500/20'
+        : 'hover:border-neutral-700 duration-300 ')
     )
   }
 

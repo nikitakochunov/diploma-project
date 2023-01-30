@@ -48,9 +48,9 @@ const SelectionRooms = ({
 
   const getButtonClasses = (value) => {
     return (
-      'h-10 w-10 rounded border-2 ' +
+      'h-10 w-10 rounded border-[1px] ' +
       (isSelected(value)
-        ? 'border-blue-100 bg-blue-100 hover:border-blue-500 text-blue-500'
+        ? 'border-mainColor-100 bg-mainColor-100 hover:border-mainColor-500 text-mainColor-500'
         : 'border-neutral-200 hover:border-neutral-700')
     )
   }
@@ -163,7 +163,7 @@ const SelectionRooms = ({
                 <span
                   className={
                     'h-5 w-5 rounded border-2 flex items-center' +
-                    (isSelected(room.value) ? ' border-blue-500' : '')
+                    (isSelected(room.value) ? ' border-mainColor-500' : '')
                   }
                 >
                   {isSelected(room.value) ? <CheckIcon /> : ''}

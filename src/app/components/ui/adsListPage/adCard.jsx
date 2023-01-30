@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../api'
+import { animationClass } from '../../../constants/animationClass'
 import TextMuted from '../../common/textMuted'
 import Title from '../../common/title'
+import Wrapper from '../../common/wrapper'
 import MetroStationWrapper from '../metroStationWrapper'
 
-const AdCard = ({ data }) => {
+const AdCard = ({ data, onClick }) => {
   const { address } = data
 
   const [metroStations, setMetroStations] = useState([])
@@ -14,6 +16,10 @@ const AdCard = ({ data }) => {
     api.metroStations.fetchAll().then((data) => setMetroStations(data))
     api.districts.fetchAll().then((data) => setDistricts(data))
   }, [])
+
+  const handleClick = () => {
+    onClick(data.value)
+  }
 
   const getMetroStations = (metro) => {
     if (metroStations.length > 0) {
@@ -60,37 +66,42 @@ const AdCard = ({ data }) => {
 
   return (
     <div
-      className='flex flex-row space-x-4 p-4 border-2 border-neutral-100 h-auto hover:shadow-lg hover:border-neutral-200'
+      className={'hover:shadow-lg ' + animationClass}
       role='button'
+      onClick={handleClick}
     >
-      <div className='basis-4/12 flex flex-row flex-wrap'>
-        <div className='border-2 basis-full'>1</div>
-        <div className='border-2 basis-1/2'>2</div>
-        <div className='border-2 basis-1/2'>3</div>
-      </div>
-      <div className='basis-8/12 flex flex-col space-y-4'>
-        <div>
-          <Title>{data.name}</Title>
-        </div>
-        <div className=''>
-          <div className='ml-3.5 mb-1'>
-            {getMetroStations(address.metro.value)}
+      <Wrapper>
+        <div className='flex flex-row space-x-4'>
+          <div className='basis-4/12 flex flex-row flex-wrap'>
+            <div className='border-[1px] basis-full bg-mainColor-300'></div>
+            <div className='border-[1px] basis-1/2 bg-mainColor-200'></div>
+            <div className='border-[1px] basis-1/2 bg-mainColor-200'></div>
           </div>
-          <TextMuted>
-            {getDistrict(address.district.value)}
-            {' ' + address.text}
-          </TextMuted>
+          <div className='basis-8/12 flex flex-col space-y-4'>
+            <div>
+              <Title>{data.name}</Title>
+            </div>
+            <div className=''>
+              <div className='ml-3.5 mb-1'>
+                {getMetroStations(address.metro.value)}
+              </div>
+              <TextMuted>
+                {getDistrict(address.district.value)}
+                {' ' + address.text}
+              </TextMuted>
+            </div>
+            <div>
+              <Title>{data.rent} ₽ в месяц</Title>
+            </div>
+            <div className=''>
+              <p>{data.description}</p>
+            </div>
+            <div className='self-end'>
+              <TextMuted>{data.date}</TextMuted>
+            </div>
+          </div>
         </div>
-        <div>
-          <Title>{data.price} ₽ в месяц</Title>
-        </div>
-        <div className=''>
-          <p>{data.description}</p>
-        </div>
-        <div className='self-end'>
-          <TextMuted>{data.date}</TextMuted>
-        </div>
-      </div>
+      </Wrapper>
     </div>
   )
 }
