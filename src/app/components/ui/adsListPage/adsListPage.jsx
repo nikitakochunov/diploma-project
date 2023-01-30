@@ -4,9 +4,10 @@ import AdsList from './adsList'
 import Container from '../../common/container'
 import Loading from '../../common/loading'
 import Header from '../header'
-import SelectionForm from '../selection/selectionForm'
+import { useHistory } from 'react-router'
 
-const AdsPage = () => {
+const AdsListPage = () => {
+  const history = useHistory()
   const [ads, setAds] = useState([])
 
   useEffect(() => {
@@ -15,6 +16,10 @@ const AdsPage = () => {
 
   const filteredAds = ads.filter((ad) => ad) //* Пока без фильтрации
 
+  const handleClick = (value) => {
+    history.push(`/ads/${value}`)
+  }
+
   return (
     <>
       <Header />
@@ -22,7 +27,7 @@ const AdsPage = () => {
         {filteredAds.length > 0 ? (
           <div className='flex flex-col py-4'>
             {/* <SelectionForm /> */}
-            <AdsList ads={filteredAds} />
+            <AdsList ads={filteredAds} onClick={handleClick} />
           </div>
         ) : (
           <Loading>Ща-ща, погоди, братан...</Loading>
@@ -32,4 +37,4 @@ const AdsPage = () => {
   )
 }
 
-export default AdsPage
+export default AdsListPage

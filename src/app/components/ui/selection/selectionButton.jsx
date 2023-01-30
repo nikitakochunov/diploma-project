@@ -4,8 +4,8 @@ import { ChevronDown } from '../../icons'
 const SelectionButton = ({ text, name, onClick, isActive }) => {
   const getClasses = () => {
     return (
-      'flex flex-row justify-between items-center w-full h-full py-4 px-6 cursor-pointer text-left transition-colors duration-200 hover:bg-blue-100 ' +
-      (isActive ? 'bg-blue-100' : '')
+      'flex flex-row justify-between items-center w-full h-full py-4 px-6 cursor-pointer text-left transition-colors duration-200 hover:bg-mainColor-100 ' +
+      (isActive ? 'bg-mainColor-100' : '')
     )
   }
 

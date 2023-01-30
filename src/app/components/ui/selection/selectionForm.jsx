@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import Button from '../../common/button'
+import { useHistory } from 'react-router'
+import PrimaryButton from '../../common/buttons/primaryButton'
 import SelectionAddress from './selectionAddress'
 import SelectionRent from './selectionRent'
 import SelectionRooms from './selectionRooms'
 
 const SelectionForm = () => {
+  const history = useHistory()
+
   const [activeButton, setActiveButton] = useState({
     rooms: false,
     rent: false,
@@ -28,6 +31,7 @@ const SelectionForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(value)
+    history.push('/ads')
   }
 
   const handleButtonClick = (targetName) => {
@@ -52,7 +56,7 @@ const SelectionForm = () => {
     <form onSubmit={handleSubmit}>
       <div className='flex flex-col space-y-2'>
         <div className='flex flex-row flex-wrap bg-white rounded'>
-          <div className='basis-1/4 border-r-2 border-r-neutral-200'>
+          <div className='basis-1/4 border-r-[1px] border-r-neutral-200'>
             <SelectionRooms
               name='rooms'
               isActive={activeButton.rooms}
@@ -62,7 +66,7 @@ const SelectionForm = () => {
               onButtonClick={handleButtonClick}
             />
           </div>
-          <div className='basis-1/4 border-r-2 border-r-neutral-200'>
+          <div className='basis-1/4 border-r-[1px] border-r-neutral-200'>
             <SelectionRent
               name='rent'
               value={value.rent}
@@ -83,13 +87,8 @@ const SelectionForm = () => {
             />
           </div>
         </div>
-        <div className='basis-1/4 self-end'>
-          <Button
-            className='py-2 px-7 bg-blue-600 hover:bg-blue-700 text-neutral-50 font-bold'
-            type='submit'
-          >
-            Найти
-          </Button>
+        <div className='self-end'>
+          <PrimaryButton>Найти</PrimaryButton>
         </div>
       </div>
     </form>
