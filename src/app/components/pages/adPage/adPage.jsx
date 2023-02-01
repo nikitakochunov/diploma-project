@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../api'
 import Container from '../../common/container'
-import Loading from '../../common/loading'
 import TextMuted from '../../common/textMuted'
 import Title from '../../common/title'
-import Header from '../header'
-import MetroStationWrapper from '../metroStationWrapper'
+import Header from '../../ui/header'
+import MetroStationWrapper from '../../ui/metroStationWrapper'
 import { toDecimal } from '../../../utils/toDecimal'
 import { PrimaryButton, SecondaryButton } from '../../common/buttons'
 import Wrapper from '../../common/wrapper'
 import Divider from '../../common/divider'
+import LandlordCard from '../../ui/landlordCard'
+import Loader from '../../common/loader'
 
 const AdPage = ({ ad }) => {
   const [metroStations, setMetroStations] = useState([])
   const [districts, setDistricts] = useState([])
+  const [landlords, setLandlords] = useState([])
 
   useEffect(() => {
-    api.metroStations.fetchAll().then((ad) => setMetroStations(ad))
-    api.districts.fetchAll().then((ad) => setDistricts(ad))
+    api.metroStations.fetchAll().then((data) => setMetroStations(data))
+    api.districts.fetchAll().then((data) => setDistricts(data))
+    api.landlords.fetchAll().then((data) => setLandlords(data))
   }, [])
 
   const getMetroStations = (metro) => {
@@ -63,12 +66,20 @@ const AdPage = ({ ad }) => {
     return ''
   }
 
+  const getLandlordName = () => {
+    if (landlords.length > 0) {
+      return landlords.find((ll) => ll.value === ad.landlord_value)
+    }
+  }
+
+  const landlord = getLandlordName()
+
   return (
     <>
       <Header />
       {ad ? (
         <Container>
-          <div className='flex flex-row mt-10 space-x-2'>
+          <div className='flex flex-row space-x-2 pb-4 items-start'>
             <div className='basis-8/12'>
               <Wrapper>
                 <div className='flex flex-col space-y-4'>
@@ -164,19 +175,14 @@ const AdPage = ({ ad }) => {
                   </div>
 
                   <Divider />
-                  <div className='flex flex-row items-center space-x-2'>
-                    <div className='rounded-full w-10 h-10 border-2'></div>
-                    <div>
-                      <Title>Продавец</Title>
-                    </div>
-                  </div>
+                  {landlord ? <LandlordCard data={landlord} /> : '...'}
                 </div>
               </Wrapper>
             </div>
           </div>
         </Container>
       ) : (
-        <Loading />
+        <Loader />
       )}
     </>
   )
