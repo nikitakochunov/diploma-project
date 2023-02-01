@@ -16,7 +16,7 @@ const Loader = () => {
       <div className='mb-2'>
         <svg
           aria-hidden='true'
-          class='w-10 h-10 mr-2 text-gray-200 animate-spin fill-mainColor-600'
+          className='w-10 h-10 mr-2 text-gray-200 animate-spin fill-mainColor-600'
           viewBox='0 0 100 101'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
