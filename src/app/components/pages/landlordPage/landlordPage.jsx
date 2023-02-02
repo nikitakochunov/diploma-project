@@ -55,7 +55,7 @@ const LandlordPage = ({ landlord }) => {
                     <Title>Объявления</Title>
                   </div>
                   <div>
-                    <AdsList ads={ads} isCol={false} />
+                    <AdsList ads={lanlordAds} isCol={false} />
                   </div>
                 </div>
               </Wrapper>

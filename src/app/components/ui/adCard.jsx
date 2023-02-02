@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
-import { animationClass } from '../../constants/animationClass'
 import TextMuted from '../common/textMuted'
 import Title from '../common/title'
 import Wrapper from '../common/wrapper'
@@ -11,10 +10,6 @@ const AdCard = ({ data, onClick, isCol = true }) => {
 
   const [metroStations, setMetroStations] = useState([])
   const [districts, setDistricts] = useState([])
-
-  // const getFlexClasses = () => {
-  //   return isCol ? '' : 'basis-1/3'
-  // }
 
   useEffect(() => {
     api.metroStations.fetchAll().then((data) => setMetroStations(data))
@@ -42,7 +37,6 @@ const AdCard = ({ data, onClick, isCol = true }) => {
           )
         })
         return metroStationsArray
-        // return metroStationsArray.join(', ')
       } else {
         const metroStation = metroStations.find(
           (metroStation) => metroStation.value === metro
