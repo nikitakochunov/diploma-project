@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import api from '../api'
-import AdPage from '../components/ui/adPage/'
-import AdsListPage from '../components/ui/adsListPage/'
+import AdPage from '../components/pages/adPage/'
+import AdsListPage from '../components/pages/adsListPage/'
 
 const Ads = () => {
   const { adId } = useParams()

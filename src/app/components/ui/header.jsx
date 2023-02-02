@@ -6,7 +6,7 @@ import Logo from './logo'
 
 const Header = () => {
   return (
-    <div className='border-b-[1px]'>
+    <div className='border-b-[1px] mb-10'>
       <Container>
         <div className='flex flex-row items-center py-2'>
           <div className='basis-1/4'>

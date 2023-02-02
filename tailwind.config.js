@@ -2,7 +2,7 @@
 
 const colors = require('tailwindcss/colors')
 
-const MAIN_COLOR = 'red'
+const MAIN_COLOR = 'violet'
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
