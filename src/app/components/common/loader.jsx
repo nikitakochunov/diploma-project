@@ -3,12 +3,6 @@ import Title from './title'
 
 const Loader = () => {
   return (
-    // <div className='flex flex-col h-full w-full items-center justify-center'>
-    //   <div class='relative'>
-    //     <span class='absolute h-16 w-16 rounded-full animate-ping bg-mainColor-400 opacity-75'></span>
-    //   </div>
-    // </div>
-
     <div
       role='status'
       className='flex flex-col h-full w-full items-center translate-y-48'
