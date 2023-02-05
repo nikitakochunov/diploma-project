@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import { toQueryOptions } from '../../../utils/queryOptions'
 import PrimaryButton from '../../common/buttons/primaryButton'
 import SelectionAddress from './selectionAddress'
 import SelectionRent from './selectionRent'
@@ -30,8 +31,9 @@ const SelectionForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(value)
-    history.push('/ads')
+    console.log('submitted value', value)
+
+    history.push('/ads?' + toQueryOptions(value))
   }
 
   const handleButtonClick = (targetName) => {

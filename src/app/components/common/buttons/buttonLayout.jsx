@@ -1,7 +1,7 @@
 import React from 'react'
 import { animationClass } from '../../../constants/animationClass'
 
-const ButtonLayout = ({ className, children }) => {
+const ButtonLayout = ({ className, children, onClick }) => {
   return (
     <button
       className={
@@ -9,6 +9,7 @@ const ButtonLayout = ({ className, children }) => {
         animationClass +
         className
       }
+      onClick={onClick}
     >
       {children}
     </button>

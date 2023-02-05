@@ -10,7 +10,7 @@ export const ads = [
     },
     about: {
       flat: {
-        rooms: 3,
+        rooms: 1,
         area: { total: 68, living: 56, kitchen: '' },
         level: { this: 14, total: 15 },
       },
@@ -35,7 +35,7 @@ export const ads = [
     },
     about: {
       flat: {
-        rooms: 3,
+        rooms: 2,
         area: { total: 36, living: 27, kitchen: '' },
         level: { this: 1, total: 9 },
       },
@@ -85,7 +85,7 @@ export const ads = [
     },
     about: {
       flat: {
-        rooms: 3,
+        rooms: 4,
         area: { total: 43, living: 37, kitchen: '' },
         level: { this: 3, total: 5 },
       },
@@ -110,7 +110,7 @@ export const ads = [
     },
     about: {
       flat: {
-        rooms: 3,
+        rooms: 1,
         area: { total: 67, living: 56, kitchen: '' },
         level: { this: 1, total: 2 },
       },
@@ -135,7 +135,7 @@ export const ads = [
     },
     about: {
       flat: {
-        rooms: 3,
+        rooms: 'studio',
         area: { total: 25, living: 15, kitchen: '' },
         level: { this: 10, total: 10 },
       },
