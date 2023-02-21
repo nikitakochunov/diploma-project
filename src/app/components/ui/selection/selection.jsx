@@ -5,7 +5,7 @@ import SelectionForm from './selectionForm'
 
 const Selection = () => {
   return (
-    <div className='py-4 px-2 bg-mainColor-300 h-full'>
+    <div className='pt-6 pb-24 px-2 bg-mainColor-300 h-full'>
       <Container>
         <div className='mb-6'>
           <button className='p-2 rounded bg-neutral-900 text-white bg-opacity-50 flex items-center space-x-2'>

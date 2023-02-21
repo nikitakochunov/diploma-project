@@ -32,12 +32,15 @@ const AdsListPage = ({ searchOptions }) => {
       // Фильтрация по варианту количества комнат
 
       const { rooms } = searchOptions
-      if (!rooms.length) return true
+      if (!rooms?.length) return true
 
       return rooms.includes(String(ad.about.flat.rooms))
     })
     .filter((ad) => {
       // Фильтрация по стоимости аренды
+
+      if (!searchOptions.rent) return true
+
       const { from, to } = searchOptions.rent
 
       const isHigher = from ? from <= ad.rent : true

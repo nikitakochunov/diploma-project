@@ -6,6 +6,7 @@ import Title from '../../common/title'
 import Wrapper from '../../common/wrapper'
 import AdsList from '../../ui/adsList'
 import Avatar from '../../ui/avatar'
+import Footer from '../../ui/footer'
 import Header from '../../ui/header'
 import Rating from '../../ui/rating'
 
@@ -24,7 +25,7 @@ const LandlordPage = ({ landlord }) => {
 
       {landlord ? (
         <Container>
-          <div className='flex flex-row space-x-4'>
+          <div className='flex flex-row space-x-4 mb-10'>
             <div className='basis-3/12'>
               <div className='sticky top-10'>
                 <Wrapper>
@@ -65,6 +66,8 @@ const LandlordPage = ({ landlord }) => {
       ) : (
         <Loader />
       )}
+
+      <Footer />
     </>
   )
 }

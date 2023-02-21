@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronDown } from '../../icons'
+import RotateChevron from '../RotateChevron'
 
 const SelectionButton = ({ text, name, onClick, isActive }) => {
   const getClasses = () => {
@@ -9,21 +9,12 @@ const SelectionButton = ({ text, name, onClick, isActive }) => {
     )
   }
 
-  const rotateChevron = () => {
-    return (
-      'transition-transform duration-300 ' +
-      (isActive ? 'rotate-180 translate-y-1' : '')
-    )
-  }
-
   return (
     <div className={getClasses()} onClick={() => onClick(name)}>
       <button name={name} type='button'>
         {text}
       </button>
-      <span className={rotateChevron()}>
-        <ChevronDown />
-      </span>
+      <RotateChevron isActive={isActive} />
     </div>
   )
 }
