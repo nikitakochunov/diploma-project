@@ -11,6 +11,7 @@ import Wrapper from '../../common/wrapper'
 import Divider from '../../common/divider'
 import LandlordCard from '../../ui/landlordCard'
 import Loader from '../../common/loader'
+import Footer from '../../ui/footer'
 
 const AdPage = ({ ad }) => {
   const [metroStations, setMetroStations] = useState([])
@@ -184,6 +185,7 @@ const AdPage = ({ ad }) => {
       ) : (
         <Loader />
       )}
+      <Footer />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import IconLayout from './iconLayout'
 
-const ChevronDown = () => {
+const ChevronUp = () => {
   return (
     <IconLayout className='text-neutral-500'>
       <path
@@ -13,4 +13,4 @@ const ChevronDown = () => {
   )
 }
 
-export default ChevronDown
+export default ChevronUp

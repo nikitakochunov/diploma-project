@@ -85,7 +85,7 @@ const SelectionAddress = ({
         onFocus={handleButtonClick}
       />
       {isActive && inputValue.length > 2 && (
-        <div className='rounded py-1 bg-white absolute top-16'>
+        <div className='rounded py-1 bg-white absolute top-16 border-[1px]'>
           <SelectField
             isGrouped={true}
             options={groupedOptions}
