@@ -6,16 +6,19 @@ import Header from '../../ui/header'
 import Loader from '../../common/loader'
 import DirectionSwitcher from '../../ui/directionSwitcher'
 import FailMessage from '../../common/failMessage'
+import { useAds } from '../../../hooks/useAds'
 
 const AdsListPage = ({ searchOptions }) => {
   console.log('searchOptions', searchOptions)
 
-  const [ads, setAds] = useState([])
+  // const [ads, setAds] = useState([])
+  const { ads, isLoading } = useAds()
+
   const [direction, setDirection] = useState('col')
 
-  useEffect(() => {
-    api.ads.fetchAll().then((data) => setAds(data))
-  }, [])
+  // useEffect(() => {
+  //   api.ads.fetchAll().then((data) => setAds(data))
+  // }, [])
 
   const handleClick = ({ currentTarget }) => {
     const { value } = currentTarget
@@ -64,18 +67,13 @@ const AdsListPage = ({ searchOptions }) => {
       return address.value === adAddressValue
     })
 
-  if (ads.length === 0) {
-    return (
-      <>
-        <Header />
-        <Loader />
-      </>
-    )
+  if (isLoading) {
+    return <Loader />
   }
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <Container>
         {filteredAds.length > 0 ? (
@@ -87,7 +85,7 @@ const AdsListPage = ({ searchOptions }) => {
               />
             </div>
 
-            <div className='flex flex-col pb-4'>
+            <div className='flex flex-col'>
               {/* <SelectionForm /> */}
               <AdsList ads={filteredAds} isCol={direction === 'col'} />
             </div>

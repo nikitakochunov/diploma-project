@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 import api from '../../api'
+import { useAddress } from '../../hooks/useAddress'
 import { toQueryOptions } from '../../utils/queryOptions'
 import { sortByAlphabet } from '../../utils/sortByAlphabet'
 import Container from '../common/container'
@@ -10,15 +11,16 @@ import RotateChevron from './RotateChevron'
 const Footer = () => {
   const history = useHistory()
 
-  const [metroStations, setMetroStations] = useState([])
-  const [districts, setDistricts] = useState([])
+  // const [metroStations, setMetroStations] = useState([])
+  // const [districts, setDistricts] = useState([])
+  const { metroStations, districts } = useAddress()
 
   const [isCropped, setCropped] = useState({ metro: true, district: null })
 
-  useEffect(() => {
-    api.metroStations.fetchAll().then((data) => setMetroStations(data))
-    api.districts.fetchAll().then((data) => setDistricts(data))
-  }, [])
+  // useEffect(() => {
+  //   api.metroStations.fetchAll().then((data) => setMetroStations(data))
+  //   api.districts.fetchAll().then((data) => setDistricts(data))
+  // }, [])
 
   const handleClick = (value) => {
     console.log('submitted value from footer', { address: value })
@@ -50,7 +52,7 @@ const Footer = () => {
   ]
 
   return (
-    <div className='border-t-[1px] p-4'>
+    <div className='border-t-[1px] mt-10 p-4'>
       <Container>
         <div className='flex flex-col space-y-4'>
           {lists.map((list) => {
@@ -66,7 +68,12 @@ const Footer = () => {
                 : {}
 
             return (
-              <List {...list} onClick={handleClick} {...moreButtonOptions} />
+              <List
+                key={list.type}
+                {...list}
+                onClick={handleClick}
+                {...moreButtonOptions}
+              />
             )
           })}
         </div>

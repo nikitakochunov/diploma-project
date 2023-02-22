@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api'
+import { useAddress } from '../../hooks/useAddress'
 import TextMuted from '../common/textMuted'
 import Title from '../common/title'
 import Wrapper from '../common/wrapper'
@@ -8,59 +9,40 @@ import MetroStationWrapper from './metroStationWrapper'
 const AdCard = ({ data, onClick, isCol = true }) => {
   const { address } = data
 
-  const [metroStations, setMetroStations] = useState([])
-  const [districts, setDistricts] = useState([])
+  // const [metroStations, setMetroStations] = useState([])
+  // const [districts, setDistricts] = useState([])
+  const { metroStations, districts, getMetroStation, getDistrict } =
+    useAddress()
 
-  useEffect(() => {
-    api.metroStations.fetchAll().then((data) => setMetroStations(data))
-    api.districts.fetchAll().then((data) => setDistricts(data))
-  }, [])
+  // useEffect(() => {
+  //   api.metroStations.fetchAll().then((data) => setMetroStations(data))
+  //   api.districts.fetchAll().then((data) => setDistricts(data))
+  // }, [])
 
   const handleClick = () => {
     onClick(data.value)
   }
 
-  const getMetroStations = (metro) => {
-    if (metroStations.length > 0) {
-      if (Array.isArray(metro)) {
-        const metroStationsArray = metro.map((station) => {
-          const metroStation = metroStations.find(
-            (metroStation) => metroStation.value === station
-          )
+  const getMetroStations = (value) => {
+    // if (metroStations.length > 0) {
+    return value.map((val) => {
+      const metroStation = getMetroStation(val)
 
-          return (
-            <MetroStationWrapper
-              color={metroStation.color}
-              label={metroStation.label}
-              key={metroStation.value}
-            />
-          )
-        })
-        return metroStationsArray
-      } else {
-        const metroStation = metroStations.find(
-          (metroStation) => metroStation.value === metro
-        )
-        return (
-          <MetroStationWrapper
-            color={metroStation.color}
-            label={metroStation.label}
-            key={metroStation.value}
-          />
-        )
-      }
-    }
-    return '...'
-  }
-
-  const getDistrict = (district) => {
-    if (districts.length > 0) {
       return (
-        districts.find((distr) => distr.value === district).label + ' район,'
+        <MetroStationWrapper
+          {...metroStation}
+          // color={metroStation.color}
+          // label={metroStation.label}
+          key={metroStation.value}
+        />
       )
-    }
-    return ''
+    })
+
+    // }
+    // return '...'
   }
+
+  const districtText = getDistrict(address.district.value).label + ' район'
 
   return isCol ? (
     <div className={'hover:shadow-lg '} role='button' onClick={handleClick}>
@@ -79,10 +61,7 @@ const AdCard = ({ data, onClick, isCol = true }) => {
               <div className='ml-3.5 mb-1'>
                 {getMetroStations(address.metro.value)}
               </div>
-              <TextMuted>
-                {getDistrict(address.district.value)}
-                {' ' + address.text}
-              </TextMuted>
+              <TextMuted>{districtText + ', ' + address.text}</TextMuted>
             </div>
             <div>
               <Title>{data.rent} ₽ в месяц</Title>

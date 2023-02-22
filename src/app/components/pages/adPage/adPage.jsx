@@ -12,72 +12,40 @@ import Divider from '../../common/divider'
 import LandlordCard from '../../ui/landlordCard'
 import Loader from '../../common/loader'
 import Footer from '../../ui/footer'
+import { useAddress } from '../../../hooks/useAddress'
+import { useLandlords } from '../../../hooks/useLandlords'
 
 const AdPage = ({ ad }) => {
-  const [metroStations, setMetroStations] = useState([])
-  const [districts, setDistricts] = useState([])
-  const [landlords, setLandlords] = useState([])
+  const { address } = ad
 
-  useEffect(() => {
-    api.metroStations.fetchAll().then((data) => setMetroStations(data))
-    api.districts.fetchAll().then((data) => setDistricts(data))
-    api.landlords.fetchAll().then((data) => setLandlords(data))
-  }, [])
+  // const [metroStations, setMetroStations] = useState([])
+  const { getDistrict, getMetroStation } = useAddress()
 
-  const getMetroStations = (metro) => {
-    if (metroStations.length > 0) {
-      if (Array.isArray(metro)) {
-        const metroStationsArray = metro.map((station) => {
-          const metroStation = metroStations.find(
-            (metroStation) => metroStation.value === station
-          )
+  // const [landlords, setLandlords] = useState([])
 
-          return (
-            <MetroStationWrapper
-              color={metroStation.color}
-              label={metroStation.label}
-              key={metroStation.value}
-            />
-          )
-        })
-        return metroStationsArray
-        // return metroStationsArray.join(', ')
-      } else {
-        const metroStation = metroStations.find(
-          (metroStation) => metroStation.value === metro
-        )
-        return (
-          <MetroStationWrapper
-            color={metroStation.color}
-            label={metroStation.label}
-            key={metroStation.value}
-          />
-        )
-      }
-    }
-    return '...'
+  // useEffect(() => {
+  //   api.metroStations.fetchAll().then((data) => setMetroStations(data))
+  //   api.districts.fetchAll().then((data) => setDistricts(data))
+  //   api.landlords.fetchAll().then((data) => setLandlords(data))
+  // }, [])
+
+  const getMetroStations = (value) => {
+    // if (metroStations.length > 0) {
+    return value.map((val) => {
+      const metroStation = getMetroStation(val)
+
+      return <MetroStationWrapper {...metroStation} key={metroStation.value} />
+    })
+
+    // }
+    // return '...'
   }
 
-  const getDistrict = (district) => {
-    if (districts.length > 0) {
-      return (
-        districts.find((distr) => distr.value === district).label + ' район,'
-      )
-    }
-    return ''
-  }
-
-  const getLandlordName = () => {
-    if (landlords.length > 0) {
-      return landlords.find((ll) => ll.value === ad.landlord_value)
-    }
-  }
-
-  const landlord = getLandlordName()
+  const districtText = getDistrict(address.district.value).label + ' район'
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {ad ? (
         <Container>
           <div className='flex flex-row space-x-2 pb-4 items-start'>
@@ -89,12 +57,9 @@ const AdPage = ({ ad }) => {
                       <Title>{ad.name}</Title>
                     </div>
                     <div>
-                      <p>
-                        {getDistrict(ad.address.district.value)}
-                        {' ' + ad.address.text}
-                      </p>
+                      <p>{districtText + ', ' + address.text}</p>
                       <div className='ml-3.5 mb-1'>
-                        {getMetroStations(ad.address.metro.value)}
+                        {getMetroStations(address.metro.value)}
                       </div>
                     </div>
                     <div>
@@ -176,7 +141,7 @@ const AdPage = ({ ad }) => {
                   </div>
 
                   <Divider />
-                  {landlord ? <LandlordCard data={landlord} /> : '...'}
+                  <LandlordCard value={ad.landlord_value} />
                 </div>
               </Wrapper>
             </div>
@@ -185,7 +150,7 @@ const AdPage = ({ ad }) => {
       ) : (
         <Loader />
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
