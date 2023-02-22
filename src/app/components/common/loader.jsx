@@ -3,10 +3,7 @@ import Title from './title'
 
 const Loader = () => {
   return (
-    <div
-      role='status'
-      className='flex flex-col h-full w-full items-center translate-y-48'
-    >
+    <div role='status' className='flex flex-col items-center mt-60 mb-60'>
       <div className='mb-2'>
         <svg
           aria-hidden='true'

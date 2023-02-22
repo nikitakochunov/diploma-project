@@ -1,0 +1,120 @@
+[
+  { "value": "veteranov", "label": "Проспект Ветеранов", "color": "#DA2128" },
+  { "value": "prospekt", "label": "Ленинский проспект", "color": "#DA2128" },
+  { "value": "avtovo", "label": "Автово", "color": "#DA2128" },
+  { "value": "kirovskiy", "label": "Кировский завод", "color": "#DA2128" },
+  { "value": "narvskaya", "label": "Нарвская", "color": "#DA2128" },
+  { "value": "baltiyskaya", "label": "Балтийская", "color": "#DA2128" },
+  {
+    "value": "tehnologicheskiy-1",
+    "label": "Технологический институт 1",
+    "color": "#DA2128"
+  },
+  { "value": "pushkinskaya", "label": "Пушкинская", "color": "#DA2128" },
+  { "value": "vladimirskaya", "label": "Владимирская", "color": "#DA2128" },
+  { "value": "vosstaniya", "label": "Площадь Восстания", "color": "#DA2128" },
+  { "value": "chernyshevskaya", "label": "Чернышевская", "color": "#DA2128" },
+  { "value": "lenina", "label": "Площадь Ленина", "color": "#DA2128" },
+  { "value": "vyborgskaya", "label": "Выборгская", "color": "#DA2128" },
+  { "value": "lesnaya", "label": "Лесная", "color": "#DA2128" },
+  { "value": "muzhestva", "label": "Площадь Мужества", "color": "#DA2128" },
+  {
+    "value": "politehnicheskaya",
+    "label": "Политехническая",
+    "color": "#DA2128"
+  },
+  { "value": "akademicheskaya", "label": "Академическая", "color": "#DA2128" },
+  {
+    "value": "grazhdanskiy",
+    "label": "Гражданский проспект",
+    "color": "#DA2128"
+  },
+  { "value": "devyatkino", "label": "Девяткино", "color": "#DA2128" },
+  { "value": "kupchino", "label": "Купчино", "color": "#0078BF" },
+  { "value": "zvezdnaya", "label": "Звездная", "color": "#0078BF" },
+  { "value": "moskovskaya", "label": "Московская", "color": "#0078BF" },
+  { "value": "parkpobedy", "label": "Парк Победы", "color": "#0078BF" },
+  { "value": "elektrosila", "label": "Электросила", "color": "#0078BF" },
+  {
+    "value": "moskovskievorota",
+    "label": "Московские ворота",
+    "color": "#0078BF"
+  },
+  { "value": "frunzenskaya", "label": "Фрунзенская", "color": "#0078BF" },
+  {
+    "value": "tehnologicheskiy-2",
+    "label": "Технологический институт 2",
+    "color": "#0078BF"
+  },
+  { "value": "sennaya", "label": "Сенная площадь", "color": "#0078BF" },
+  { "value": "nevskiy", "label": "Невский проспект", "color": "#0078BF" },
+  { "value": "gorkovskaya", "label": "Горьковская", "color": "#0078BF" },
+  { "value": "petrogradskaya", "label": "Петроградская", "color": "#0078BF" },
+  { "value": "chernayarechka", "label": "Черная речка", "color": "#0078BF" },
+  { "value": "pionerskaya", "label": "Пионерская", "color": "#0078BF" },
+  { "value": "udelnaya", "label": "Удельная", "color": "#0078BF" },
+  { "value": "ozerki", "label": "Озерки", "color": "#0078BF" },
+  {
+    "value": "prosvescheniya",
+    "label": "Проспект Просвещения",
+    "color": "#0078BF"
+  },
+  { "value": "zenit", "label": "Зенит (Новокрестовская)", "color": "#48B85E" },
+  { "value": "primorskaya", "label": "Приморская", "color": "#48B85E" },
+  {
+    "value": "vasileostrovskaya",
+    "label": "Василеостровская",
+    "color": "#48B85E"
+  },
+  { "value": "gostinyy", "label": "Гостиный двор", "color": "#48B85E" },
+  { "value": "mayakovskaya", "label": "Маяковская", "color": "#48B85E" },
+  {
+    "value": "aleksandranevskogo-1",
+    "label": "Площадь Александра Невского 1",
+    "color": "#48B85E"
+  },
+  { "value": "elizarovskaya", "label": "Елизаровская", "color": "#48B85E" },
+  { "value": "lomonosovskaya", "label": "Ломоносовская", "color": "#48B85E" },
+  { "value": "proletarskaya", "label": "Пролетарская", "color": "#48B85E" },
+  { "value": "obuhovo", "label": "Обухово", "color": "#48B85E" },
+  { "value": "rybackoe", "label": "Рыбацкое", "color": "#48B85E" },
+  { "value": "dybenko", "label": "Улица Дыбенко", "color": "#F58220" },
+  {
+    "value": "bolshevikov",
+    "label": "Проспект Большевиков",
+    "color": "#F58220"
+  },
+  { "value": "ladozhskaya", "label": "Ладожская", "color": "#F58220" },
+  {
+    "value": "novocherkasskaya",
+    "label": "Новочеркасская",
+    "color": "#F58220"
+  },
+  {
+    "value": "aleksandranevskogo-2",
+    "label": "Площадь Александра Невского 2",
+    "color": "#F58220"
+  },
+  { "value": "ligovskiy", "label": "Лиговский проспект", "color": "#F58220" },
+  { "value": "dostoevskaya", "label": "Достоевская", "color": "#F58220" },
+  { "value": "spasskaya", "label": "Спасская", "color": "#F58220" },
+  { "value": "shushary", "label": "Шушары", "color": "#8E479B" },
+  { "value": "dunayskaya", "label": "Дунайская", "color": "#8E479B" },
+  { "value": "slavy", "label": "Проспект Славы", "color": "#8E479B" },
+  { "value": "mezhdunarodnaya", "label": "Международная", "color": "#8E479B" },
+  { "value": "buharestskaya", "label": "Бухарестская", "color": "#8E479B" },
+  { "value": "volkovskaya", "label": "Волковская", "color": "#8E479B" },
+  { "value": "obvodnyy kanal", "label": "Обводный канал", "color": "#8E479B" },
+  { "value": "zvenigorodskaya", "label": "Звенигородская", "color": "#8E479B" },
+  { "value": "sadovaya", "label": "Садовая", "color": "#8E479B" },
+  { "value": "admiralteyskaya", "label": "Адмиралтейская", "color": "#8E479B" },
+  { "value": "sportivnaya", "label": "Спортивная", "color": "#8E479B" },
+  { "value": "chkalovskaya", "label": "Чкаловская", "color": "#8E479B" },
+  { "value": "krestovskiy", "label": "Крестовский остров", "color": "#8E479B" },
+  { "value": "starayaderevnya", "label": "Старая Деревня", "color": "#8E479B" },
+  {
+    "value": "komendantskiy",
+    "label": "Комендантский проспект",
+    "color": "#8E479B"
+  }
+]

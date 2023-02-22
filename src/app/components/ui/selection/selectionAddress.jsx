@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../api'
-import { bgColor } from '../../../constants/tailwindClasses'
+import { useAddress } from '../../../hooks/useAddress'
 import SelectField from '../../common/selectField'
 import MetroStationWrapper from '../metroStationWrapper'
 
@@ -15,13 +15,14 @@ const SelectionAddress = ({
   const optionsNumber = 5
 
   const [inputValue, setInputvalue] = useState('')
-  const [metroStations, setMetroStations] = useState([])
-  const [districts, setDistricts] = useState([])
+  // const [metroStations, setMetroStations] = useState([])
+  // const [districts, setDistricts] = useState([])
+  const { metroStations, districts } = useAddress()
 
-  useEffect(() => {
-    api.districts.fetchAll().then((data) => setDistricts(data))
-    api.metroStations.fetchAll().then((data) => setMetroStations(data))
-  }, [])
+  // useEffect(() => {
+  //   api.districts.fetchAll().then((data) => setDistricts(data))
+  //   api.metroStations.fetchAll().then((data) => setMetroStations(data))
+  // }, [])
 
   const handleChange = ({ target }) => {
     setInputvalue(target.value)

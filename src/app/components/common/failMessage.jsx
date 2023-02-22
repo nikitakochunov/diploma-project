@@ -7,8 +7,8 @@ const FailMessage = () => {
   const history = useHistory()
 
   return (
-    <div className='flex flex-col h-full w-full items-center translate-y-48 space-y-6'>
-      <div className='text-center'>
+    <div className='flex flex-col items-center mt-60 mb-60'>
+      <div className='text-center mb-2'>
         <Title>К сожалению, по вашему запросу ничего не найдено.</Title>
         <p className='mt-2'>
           Проверьте корректность выбранных фильтров поиска или задайте новые

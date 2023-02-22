@@ -3,22 +3,26 @@ import { useParams } from 'react-router'
 import api from '../api'
 import AdPage from '../components/pages/adPage/'
 import AdsListPage from '../components/pages/adsListPage/'
+import { useAds } from '../hooks/useAds'
 import { fromQueryOptions } from '../utils/queryOptions'
 
 const Ads = ({ location }) => {
   const search = fromQueryOptions(location.search)
   const { adId } = useParams()
 
-  const [ads, setAds] = useState([])
+  // const [ads, setAds] = useState([])
+  const { getAd } = useAds()
 
-  useEffect(() => {
-    api.ads.fetchAll().then((data) => setAds(data))
-  }, [])
+  // useEffect(() => {
+  //   api.ads.fetchAll().then((data) => setAds(data))
+  // }, [])
 
-  const ad = ads.find((ad) => ad.value === adId)
+  const ad = getAd(adId)
 
   return (
-    <>{adId ? <AdPage ad={ad} /> : <AdsListPage searchOptions={search} />}</>
+    <>
+      {adId && ad ? <AdPage ad={ad} /> : <AdsListPage searchOptions={search} />}
+    </>
   )
 }
 

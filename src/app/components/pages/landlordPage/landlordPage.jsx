@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../../api'
+import { useAds } from '../../../hooks/useAds'
+import { useLandlords } from '../../../hooks/useLandlords'
 import Container from '../../common/container'
 import Loader from '../../common/loader'
 import Title from '../../common/title'
@@ -10,20 +12,22 @@ import Footer from '../../ui/footer'
 import Header from '../../ui/header'
 import Rating from '../../ui/rating'
 
-const LandlordPage = ({ landlord }) => {
-  const [ads, setAds] = useState([])
+const LandlordPage = ({ data }) => {
+  // const [ads, setAds] = useState([])
+  const { ads } = useAds()
 
-  useEffect(() => {
-    api.ads.fetchAll().then((data) => setAds(data))
-  }, [])
+  // useEffect(() => {
+  //   api.ads.fetchAll().then((data) => setAds(data))
+  // }, [])
 
-  const lanlordAds = ads.filter((ad) => ad.landlord_value === landlord.value)
+  const lanlordAds = ads.filter((ad) => ad.landlord_value === data.value)
+  console.log('lanlordAds', lanlordAds)
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
-      {landlord ? (
+      {data ? (
         <Container>
           <div className='flex flex-row space-x-4 mb-10'>
             <div className='basis-3/12'>
@@ -31,18 +35,18 @@ const LandlordPage = ({ landlord }) => {
                 <Wrapper>
                   <div className='flex flex-col space-y-2'>
                     <div>
-                      <Avatar className='w-28 h-28' />
+                      <Avatar id={data.avatar_value} className='w-28 h-28' />
                     </div>
 
                     <div>
                       <div className='flex flex-col space-y-1'>
                         <div>
-                          <Title>{landlord.name}</Title>
+                          <Title>{data.name}</Title>
                         </div>
                         <div>
-                          <Rating rating={landlord.rating} />
+                          <Rating rating={data.rating} />
                         </div>
-                        <div>Зарегистрирован {landlord.registrationDate}</div>
+                        <div>Зарегистрирован {data.registrationDate}</div>
                       </div>
                     </div>
                   </div>
@@ -67,7 +71,7 @@ const LandlordPage = ({ landlord }) => {
         <Loader />
       )}
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
